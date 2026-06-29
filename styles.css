@@ -42,7 +42,7 @@ button,input,select,textarea{font:inherit}
   padding:24px;
   background:
     linear-gradient(rgba(255,250,243,.78),rgba(255,250,243,.88)),
-    url("assets/cover-placeholder.svg") center/cover no-repeat;
+    url("assets/Villa+d'este.webp") center/cover no-repeat;
   transition:opacity .55s ease,visibility .55s ease;
 }
 .gate.hidden{opacity:0;visibility:hidden;pointer-events:none}
@@ -103,7 +103,7 @@ button,input,select,textarea{font:inherit}
 }
 .hero-media,.hero-overlay{position:absolute;inset:0}
 .hero-media{
-  background:url("assets/Villa+d'este.webp") center/cover no-repeat, url("assets/Villa+deste.webp") center/cover no-repeat, url("assets/cover-placeholder.svg") center/cover no-repeat;
+  background:url("assets/Villa+d'este.webp") center/cover no-repeat, url("assets/Villa+deste.webp") center/cover no-repeat, url("assets/Villa+deste.webp") center/cover no-repeat;
   transform:scale(1.02);
 }
 .hero-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82)}
@@ -270,4 +270,65 @@ textarea{resize:vertical}
   .timeline-item p{font-size:1.35rem}
   .palette{grid-template-columns:repeat(2,1fr)}
   .swatch{min-height:98px}
+}
+
+.venue-photo {
+  position: relative;
+}
+
+.venue-slider {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 32px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.venue-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.venue-slider img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 32px;
+  scroll-snap-align: center;
+  display: block;
+}
+
+.swipe-note {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7a6a5d;
+}
+
+.swipe-note::before {
+  content: "← ";
+}
+
+.swipe-note::after {
+  content: " →";
+}
+
+@media (max-width: 768px) {
+  .venue-slider img {
+    height: 380px;
+    border-radius: 24px;
+  }
+
+  .venue-slider {
+    border-radius: 24px;
+  }
+
+  .swipe-note {
+    font-size: 0.75rem;
+  }
 }
