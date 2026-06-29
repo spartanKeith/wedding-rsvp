@@ -30,6 +30,11 @@ if (gate && openInviteBtn) {
     gate.classList.add("hidden");
     document.body.classList.remove("no-scroll");
 
+    // Start music after guest clicks Open Invitation
+    if (typeof playWeddingMusic === "function") {
+      playWeddingMusic();
+    }
+
     // Direct to homepage/countdown section after opening invitation
     const homeSection = document.getElementById("home");
 
@@ -271,6 +276,50 @@ if (copyGcash && gcashNumber && gcashCopyStatus) {
 
     } catch (error) {
       gcashCopyStatus.textContent = `Please copy manually: ${numberToCopy}`;
+    }
+  });
+}
+const bgMusic = document.getElementById("bgMusic");
+const musicImageBtn = document.getElementById("musicImageBtn");
+const musicImageBox = document.getElementById("musicImageBox");
+const musicStatusIcon = document.getElementById("musicStatusIcon");
+
+let isWeddingMusicPlaying = false;
+
+async function playWeddingMusic() {
+  if (!bgMusic || !musicImageBox || !musicStatusIcon) return;
+
+  try {
+    bgMusic.volume = 0.45;
+    await bgMusic.play();
+
+    isWeddingMusicPlaying = true;
+    musicImageBox.classList.add("playing");
+    musicStatusIcon.textContent = "❚❚";
+  } catch (error) {
+    console.log("Autoplay blocked or music not ready:", error);
+    isWeddingMusicPlaying = false;
+    musicImageBox.classList.remove("playing");
+    musicStatusIcon.textContent = "▶";
+  }
+}
+
+function pauseWeddingMusic() {
+  if (!bgMusic || !musicImageBox || !musicStatusIcon) return;
+
+  bgMusic.pause();
+
+  isWeddingMusicPlaying = false;
+  musicImageBox.classList.remove("playing");
+  musicStatusIcon.textContent = "▶";
+}
+
+if (musicImageBtn) {
+  musicImageBtn.addEventListener("click", () => {
+    if (isWeddingMusicPlaying) {
+      pauseWeddingMusic();
+    } else {
+      playWeddingMusic();
     }
   });
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ian & Colyn | Wedding Invitation</title>
-  <meta name="description" content="Wedding invitation and RSVP website for Jonathan and Colyn - August 21, 2026 at Villa D'este Tagaytay Events Place." />
+  <title>Jonathan Ian & Colyn Claire | Wedding Invitation</title>
+  <meta name="description" content="Wedding invitation and RSVP for JonathanIan and Colyn Claire - August 21, 2026 at Villa D'este Tagaytay Events Place." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   <div class="gate" id="gate">
     <div class="gate-card">
       <p class="eyebrow">You are invited to the wedding of</p>
-      <h1>Ian <span>&</span> Colyn</h1>
+      <h1>Jonathan<br><span>&</span><br>Colyn</h1>
       <p class="gate-date">August 21, 2026</p>
       <button class="btn primary" id="openInviteBtn">Open Invitation</button>
     </div>
   </div>
 
   <header class="site-header" id="top">
-    <a class="brand" href="#home">I & C</a>
+    <a class="brand" href="#home">J & C</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
     <nav class="nav" id="nav">
       <a href="#home">Home</a>
@@ -36,12 +36,12 @@
   <main>
     <section class="hero section" id="home">
       <div class="hero-media" aria-hidden="true">
-        <img src="assets/Villa+d'este.webp" data-fallback-src="assets/Villa+deste.webp" alt="" class="js-fallback-img">
+        <img src="assets/bg.jpg" data-fallback-src="assets/Villa+deste.webp" alt="" class="js-fallback-img">
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content reveal">
         <p class="eyebrow">By God's grace, we're getting married</p>
-        <h1>Ian <span>&</span> Colyn</h1>
+        <h1>Jonathan Ian <br><span>&</span><br> Colyn Claire</h1>
         <p class="verse">“He has made everything beautiful in its time.”<br><span>Ecclesiastes 3:11</span></p>
         <p class="date">August 21, 2026</p>
         <p class="hashtag">#IanNaAngGodsColyn</p>
@@ -216,11 +216,11 @@
             <p>Names to be added</p>
           </article>
           <article class="entourage-card reveal">
-            <h3>Ring Bearer</h3>
+            <h3>Bible Bearer</h3>
             <p>Name to be added</p>
           </article>
           <article class="entourage-card reveal">
-            <h3>Bible Bearer</h3>
+            <h3>Ring Bearer</h3>
             <p>Name to be added</p>
           </article>
         </div>
@@ -396,13 +396,24 @@
     </section>
   </main>
 
-  <a class="floating-rsvp" href="#rsvp">RSVP</a>
+  <a class="floating-rsvp" href="#rsvp">Submit RSVP Now!</a>
 
   <footer class="footer">
-    <p>Ian & Colyn</p>
+    <p>Jonathan Ian & Colyn Claire</p>
     <p>August 21, 2026 • Villa D’este Tagaytay Events Place</p>
     <button class="copy-btn" id="copyHashtag">Copy #IanNaAngGodsColyn</button>
   </footer>
+
+  <div class="music-image-box" id="musicImageBox">
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/JESUS.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-image-btn" id="musicImageBtn" type="button" aria-label="Play or pause wedding music">
+    <img src="assets/MUSIC.png" alt="Wedding music cover">
+    <span class="music-status-icon" id="musicStatusIcon">▶</span>
+  </button>
+</div>
 
   <script src="script.js"></script>
 </body>
