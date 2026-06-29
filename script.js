@@ -29,6 +29,23 @@ if (gate && openInviteBtn) {
   openInviteBtn.addEventListener("click", () => {
     gate.classList.add("hidden");
     document.body.classList.remove("no-scroll");
+
+    // Direct to homepage/countdown section after opening invitation
+    const homeSection = document.getElementById("home");
+
+    if (homeSection) {
+      setTimeout(() => {
+        homeSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 200);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   });
 }
 
