@@ -21,7 +21,7 @@
   </div>
 
   <header class="site-header" id="top">
-    <a class="brand" href="#home">J & C</a>
+    <a class="brand" href="#home">I & C</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
     <nav class="nav" id="nav">
       <a href="#home">Home</a>
@@ -255,12 +255,35 @@
     </section>
 
     <section class="section gift" id="gift-guide">
-      <div class="container narrow reveal">
-        <p class="eyebrow">Gift Guide</p>
-        <h2>Your presence is the greatest gift we could ask for.</h2>
-        <p>If you feel led to bless us further as we begin this new season, a love gift or monetary gift would be sincerely appreciated.</p>
+  <div class="container narrow reveal">
+    <p class="eyebrow">Gift Guide</p>
+    <h2>Your presence is the greatest gift we could ask for.</h2>
+    <p>If you feel led to bless us further as we begin this new season, a love gift or monetary gift would be sincerely appreciated.</p>
+
+    <div class="gift-payment-box">
+      <div class="gift-qr-card">
+        <h3>Bank Account QR</h3>
+        <p>You may scan the QR code below for your love gift.</p>
+
+        <div class="qr-frame">
+          <img src="assets/bank-qr.png" alt="Bank account QR code for love gift">
+        </div>
       </div>
-    </section>
+
+      <div class="gift-gcash-card">
+        <h3>GCash Number</h3>
+        <p>You may also send your love gift through GCash.</p>
+
+        <div class="copy-field">
+          <span id="gcashNumber">09XXXXXXXXX</span>
+          <button class="copy-small-btn" id="copyGcash" type="button">Copy</button>
+        </div>
+
+        <p class="copy-helper" id="gcashCopyStatus">Tap copy to copy the GCash number.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="section rsvp" id="rsvp">
       <div class="container rsvp-grid">

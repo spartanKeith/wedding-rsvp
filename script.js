@@ -232,3 +232,28 @@ if (copyHashtag) {
     }
   });
 }
+
+const copyGcash = document.getElementById("copyGcash");
+const gcashNumber = document.getElementById("gcashNumber");
+const gcashCopyStatus = document.getElementById("gcashCopyStatus");
+
+if (copyGcash && gcashNumber && gcashCopyStatus) {
+  copyGcash.addEventListener("click", async () => {
+    const numberToCopy = gcashNumber.textContent.trim();
+
+    try {
+      await navigator.clipboard.writeText(numberToCopy);
+
+      copyGcash.textContent = "Copied!";
+      gcashCopyStatus.textContent = "GCash number copied.";
+
+      setTimeout(() => {
+        copyGcash.textContent = "Copy";
+        gcashCopyStatus.textContent = "Tap copy to copy the GCash number.";
+      }, 1800);
+
+    } catch (error) {
+      gcashCopyStatus.textContent = `Please copy manually: ${numberToCopy}`;
+    }
+  });
+}
