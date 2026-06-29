@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9e7ee"/>
+      <stop offset=".46" stop-color="#f6ece0"/>
+      <stop offset="1" stop-color="#d9c6aa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0" stop-color="#fff9ec" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff9ec" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <path d="M0 700 C 220 630 430 620 650 705 C 920 810 1170 665 1600 710 L1600 1000 L0 1000 Z" fill="#b8c9ad" opacity=".78"/>
+  <path d="M0 790 C 300 720 510 745 790 810 C 1010 860 1260 770 1600 805 L1600 1000 L0 1000 Z" fill="#879c78" opacity=".6"/>
+  <g opacity=".48" fill="none" stroke="#896b45" stroke-width="5">
+    <path d="M470 670 L470 455 L1130 455 L1130 670"/>
+    <path d="M425 455 L800 275 L1175 455"/>
+    <path d="M595 670 L595 525 L705 525 L705 670"/>
+    <path d="M845 670 L845 525 L955 525 L955 670"/>
+    <path d="M750 455 L750 360 L850 360 L850 455"/>
+  </g>
+  <g fill="#f8d8dd" opacity=".72">
+    <circle cx="250" cy="360" r="18"/><circle cx="305" cy="330" r="12"/><circle cx="1310" cy="350" r="16"/><circle cx="1360" cy="395" r="11"/>
+  </g>
+  <text x="800" y="890" font-family="Georgia,serif" font-size="52" text-anchor="middle" fill="#fff8ee" opacity=".82">Replace with Villa+deste.webp</text>
+</svg>

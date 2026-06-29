@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian & Colyn | Wedding Invitation</title>
+  <meta name="description" content="Wedding invitation and RSVP website for Jonathan and Colyn - August 21, 2026 at Villa D'este Tagaytay Events Place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <p class="eyebrow">You are invited to the wedding of</p>
+      <h1>Ian <span>&</span> Colyn</h1>
+      <p class="gate-date">August 21, 2026</p>
+      <button class="btn primary" id="openInviteBtn">Open Invitation</button>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home">J & C</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#details">Details</a>
+      <a href="#dress-code">Dress Code</a>
+      <a href="#entourage">Entourage</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/Villa+d'este.webp" data-fallback-src="assets/Villa+deste.webp" alt="" class="js-fallback-img">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow">By God's grace, we're getting married</p>
+        <h1>Ian <span>&</span> Colyn</h1>
+        <p class="verse">“He has made everything beautiful in its time.”<br><span>Ecclesiastes 3:11</span></p>
+        <p class="date">August 21, 2026</p>
+        <p class="hashtag">#IanNaAngGodsColyn</p>
+        <div class="countdown" id="countdown" aria-label="Countdown to wedding day">
+          <div><strong id="days">0</strong><span>Days</span></div>
+          <div><strong id="hours">0</strong><span>Hours</span></div>
+          <div><strong id="minutes">0</strong><span>Minutes</span></div>
+          <div><strong id="seconds">0</strong><span>Seconds</span></div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#rsvp">RSVP Now</a>
+          <a class="btn ghost" href="#details">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section welcome" id="welcome">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Welcome</p>
+        <h2>We are grateful to celebrate this covenant with you.</h2>
+        <p>We are grateful to celebrate this covenant with the people God has used to shape our lives. Thank you for being part of our story.</p>
+      </div>
+    </section>
+
+    <section class="section details" id="details">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Wedding Details</p>
+          <h2>When & Where</h2>
+          <p>Join us as we celebrate the covenant God is establishing in our lives.</p>
+        </div>
+
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <span class="card-icon">⛪</span>
+            <h3>Church Ceremony</h3>
+            <p><strong>3:00 PM</strong></p>
+            <p>Villa D’este Tagaytay Events Place</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="card-icon">🍽️</span>
+            <h3>Reception</h3>
+            <p><strong>6:00 PM</strong></p>
+            <p>Villa D’este Tagaytay Events Place</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="card-icon">📍</span>
+            <h3>Address</h3>
+            <p>9027-D Magallanes Drive, Maitim 2nd West, Tagaytay City, Cavite, Philippines</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline" id="timeline">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Schedule</p>
+          <h2>Wedding Timeline</h2>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item reveal"><time>3:00 PM</time><span></span><p>Wedding Ceremony</p></div>
+          <div class="timeline-item reveal"><time>5:00 PM</time><span></span><p>Photo Session</p></div>
+          <div class="timeline-item reveal"><time>5:30 PM</time><span></span><p>Reception Opens</p></div>
+          <div class="timeline-item reveal"><time>6:00 PM</time><span></span><p>Dinner & Fellowship</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section venue" id="venue">
+      <div class="container venue-grid">
+        <div class="venue-photo reveal">
+          <img src="assets/venue-photo.webp" data-fallback-src="assets/venue-placeholder.svg" alt="Villa D'este Tagaytay Events Place" class="js-fallback-img">
+        </div>
+        <div class="venue-copy reveal">
+          <p class="eyebrow">The Venue</p>
+          <h2>Villa D’este Tagaytay Events Place</h2>
+          <p>9027-D Magallanes Drive, Maitim 2nd West, Tagaytay City, Cavite, Philippines</p>
+          <ul class="check-list">
+            <li>Wide parking area inside the venue</li>
+            <li>Tagaytay weather reminder: bring a light shawl or compact umbrella</li>
+            <li>Coordinator: Ms. Roxanne <em>(add contact number)</em></li>
+            <li>Landmark: <em>to be added</em></li>
+          </ul>
+          <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Villa%20D%E2%80%99este%20Tagaytay%20Events%20Place%209027-D%20Magallanes%20Drive%20Maitim%202nd%20West%20Tagaytay%20City%20Cavite" target="_blank" rel="noopener">Open Google Maps</a>
+        </div>
+      </div>
+      <div class="container map-wrap reveal">
+        <iframe title="Map to Villa D'este Tagaytay Events Place" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Villa%20D%E2%80%99este%20Tagaytay%20Events%20Place%209027-D%20Magallanes%20Drive%20Maitim%202nd%20West%20Tagaytay%20City%20Cavite&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section class="section dress-code" id="dress-code">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Dress Code</p>
+          <h2>Dress to Celebrate
+            <br>With Us</h2>
+          <p>We kindly invite you to dress in elegant semi-formal attire in soft, joyful colors.</p>
+        </div>
+
+        <div class="dress-grid">
+          <article class="dress-card reveal">
+            <h3>Ceremony Sponsors</h3>
+            <p><strong>Ladies:</strong> Long formal gown in any shade from our pastel palette.</p>
+            <p><strong>Gentlemen:</strong> Black, charcoal, or dark gray suit with a white long-sleeved polo.</p>
+          </article>
+          <article class="dress-card reveal">
+            <h3>Guests</h3>
+            <p><strong>Ladies:</strong> Cocktail dress, midi dress, maxi dress, or elegant coordinates. Textures are encouraged.</p>
+            <p><strong>Gentlemen:</strong> Long-sleeved polo with slacks. Blazer is optional. Black, charcoal, navy, and gray suits or blazers are welcome.</p>
+          </article>
+        </div>
+
+        <div class="palette reveal" aria-label="Wedding color palette">
+          <div class="swatch powder"><span>Powder Blue</span></div>
+          <div class="swatch blush"><span>Blush Pink</span></div>
+          <div class="swatch butter"><span>Butter Yellow</span></div>
+          <div class="swatch sage"><span>Sage Green</span></div>
+          <div class="swatch peach"><span>Peach</span></div>
+          <div class="swatch lavender"><span>Lavender</span></div>
+        </div>
+
+        <div class="avoid-box reveal">
+          <h3>Please Avoid</h3>
+          <p>White or ivory, bright or neon colors, dark bold colors such as black, red, emerald green, and royal blue, heavy prints, and sequins.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section entourage" id="entourage">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Wedding Party</p>
+          <h2>The Entourage</h2>
+        </div>
+
+        <div class="entourage-grid">
+          <article class="entourage-card reveal">
+            <h3>Parents of the Groom</h3>
+            <p>Edgardo Benedicto</p>
+            <p>Miriam Benedicto</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Parents of the Bride</h3>
+            <p>Franco Barboza (+)</p>
+            <p>Evelyn Barboza</p>
+          </article>
+          <article class="entourage-card reveal wide">
+            <h3>Principal Sponsors</h3>
+            <p>Mr. Wilson Malana & Mrs. Jahnnylyn Malana</p>
+            <p>Mr. Jebey Varona & Mrs. Krizzia Yuzon-Cayabyab</p>
+            <p>Mr. Ando & Ms. Amy</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Candle Sponsors</h3>
+            <p>Names to be added</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Veil Sponsors</h3>
+            <p>Names to be added</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Cord Sponsors</h3>
+            <p>Names to be added</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Ring Bearer</h3>
+            <p>Name to be added</p>
+          </article>
+          <article class="entourage-card reveal">
+            <h3>Bible Bearer</h3>
+            <p>Name to be added</p>
+          </article>
+        </div>
+
+        <div class="witness-note reveal">
+          <h3>Our Witnesses & Prayer Partners</h3>
+          <p>Marriage is not meant to be walked alone. God has graciously surrounded us with family and friends who have encouraged us, prayed for us, and pointed us closer to Christ.</p>
+          <p>Whether you are standing with us during the ceremony or joining us from your seat, each one of you is a witness to this covenant and a valued prayer partner in our marriage.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story" id="story">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Our Story</p>
+          <h2>Our Story in Three Chapters</h2>
+        </div>
+        <div class="story-card reveal">
+          <h3>❤️ How God Introduced Us</h3>
+          <p>Add one short paragraph here about how Ian and Colyn first met.</p>
+        </div>
+        <div class="story-card reveal">
+          <h3>🙏 How God Grew Us</h3>
+          <p>Add one short paragraph here about how God shaped your relationship and faith together.</p>
+        </div>
+        <div class="story-card reveal">
+          <h3>💍 How God Led Us Here</h3>
+          <p>Add one short paragraph here about the proposal and the journey to your wedding day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gift" id="gift-guide">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Gift Guide</p>
+        <h2>Your presence is the greatest gift we could ask for.</h2>
+        <p>If you feel led to bless us further as we begin this new season, a love gift or monetary gift would be sincerely appreciated.</p>
+      </div>
+    </section>
+
+    <section class="section rsvp" id="rsvp">
+      <div class="container rsvp-grid">
+        <div class="rsvp-copy reveal">
+          <p class="eyebrow">RSVP</p>
+          <h2>Kindly let us know if you can celebrate with us.</h2>
+          <p>Please submit your response so we can prepare your seat and meal accordingly.</p>
+          <div class="rsvp-note">
+            <strong>Reminder:</strong> Please RSVP only for the guests included in your invitation.
+          </div>
+        </div>
+
+        <form class="rsvp-form reveal" id="rsvpForm">
+          <div class="form-row">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName" type="text" required placeholder="Your full name" />
+          </div>
+          <div class="form-row two">
+            <div>
+              <label for="mobileNumber">Mobile Number *</label>
+              <input id="mobileNumber" name="mobileNumber" type="tel" required placeholder="09XXXXXXXXX" />
+            </div>
+            <div>
+              <label for="email">Email <span>(optional)</span></label>
+              <input id="email" name="email" type="email" placeholder="name@email.com" />
+            </div>
+          </div>
+          <div class="form-row two">
+            <div>
+              <label for="attendance">Attendance *</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">Select one</option>
+                <option value="Attending">Joyfully attending</option>
+                <option value="Not Attending">Regretfully unable to attend</option>
+              </select>
+            </div>
+            <div>
+              <label for="guestCount">Number of Guests *</label>
+              <input id="guestCount" name="guestCount" type="number" min="0" max="10" value="1" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="mealPreference">Meal Preference <span>(optional)</span></label>
+            <select id="mealPreference" name="mealPreference">
+              <option value="">No preference</option>
+              <option value="Regular">Regular</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="With food allergy / restriction">With food allergy / restriction</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Message to the Couple</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your prayer or message for Ian & Colyn"></textarea>
+          </div>
+          <input type="hidden" name="submittedAt" id="submittedAt" />
+          <button class="btn primary full" type="submit" id="submitBtn">Submit RSVP</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Questions</p>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq-list reveal">
+          <button class="faq-item"><span>What time should I arrive?</span><strong>+</strong></button>
+          <div class="faq-answer">We recommend arriving at least 30 minutes before the 3:00 PM ceremony.</div>
+
+          <button class="faq-item"><span>Is parking available?</span><strong>+</strong></button>
+          <div class="faq-answer">Yes. There is a wide parking area inside the venue.</div>
+
+          <button class="faq-item"><span>Can I bring a plus one?</span><strong>+</strong></button>
+          <div class="faq-answer">Please bring only the guests included in your invitation so we can manage seating properly.</div>
+
+          <button class="faq-item"><span>Are children invited?</span><strong>+</strong></button>
+          <div class="faq-answer">Please refer to your invitation details. You may also contact the coordinator for confirmation.</div>
+
+          <button class="faq-item"><span>What is the dress code?</span><strong>+</strong></button>
+          <div class="faq-answer">Elegant semi-formal attire in the pastel palette: powder blue, blush pink, butter yellow, sage green, peach, or lavender.</div>
+
+          <button class="faq-item"><span>Will the ceremony be indoors?</span><strong>+</strong></button>
+          <div class="faq-answer">Venue setup details may be updated closer to the wedding day. Please check this page again before the event.</div>
+
+          <button class="faq-item"><span>Will there be vegetarian meals?</span><strong>+</strong></button>
+          <div class="faq-answer">You may indicate your meal preference in the RSVP form.</div>
+
+          <button class="faq-item"><span>Who should I contact if I have questions?</span><strong>+</strong></button>
+          <div class="faq-answer">Please contact the wedding coordinator, Ms. Roxanne. Add her contact number in the Venue section.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prayer" id="contact">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Pray With Us</p>
+        <h2>Our Prayer</h2>
+        <p>More than celebrating our marriage, our greatest desire is that everyone who gathers with us would experience the love and faithfulness of Jesus Christ.</p>
+        <p>Thank you for witnessing the covenant God is establishing in our lives. We pray that this day points not to us, but to Him.</p>
+        <div class="prayer-list">
+          <span>Our marriage</span>
+          <span>Our future family</span>
+          <span>Wisdom</span>
+          <span>Our ministry together</span>
+          <span>Everyone attending</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-rsvp" href="#rsvp">RSVP</a>
+
+  <footer class="footer">
+    <p>Ian & Colyn</p>
+    <p>August 21, 2026 • Villa D’este Tagaytay Events Place</p>
+    <button class="copy-btn" id="copyHashtag">Copy #IanNaAngGodsColyn</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
