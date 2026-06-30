@@ -30,12 +30,10 @@ if (gate && openInviteBtn) {
     gate.classList.add("hidden");
     document.body.classList.remove("no-scroll");
 
-    // Start music after guest clicks Open Invitation
     if (typeof playWeddingMusic === "function") {
       playWeddingMusic();
     }
 
-    // Direct to homepage/countdown section after opening invitation
     const homeSection = document.getElementById("home");
 
     if (homeSection) {
@@ -137,35 +135,85 @@ faqButtons.forEach(button => {
   });
 });
 
-/* Attendance logic */
-const attendance = document.getElementById("attendance");
-const guestCount = document.getElementById("guestCount");
-
-if (attendance && guestCount) {
-  attendance.addEventListener("change", () => {
-    if (attendance.value === "Not Attending") {
-      guestCount.value = 0;
-      guestCount.min = 0;
-    } else {
-      guestCount.min = 1;
-
-      if (Number(guestCount.value) < 1) {
-        guestCount.value = 1;
-      }
-    }
-  });
-}
-
-/* RSVP Form */
+/* RSVP Form - Updated for New RSVP Fields */
 const form = document.getElementById("rsvpForm");
 const statusEl = document.getElementById("formStatus");
 const submitBtn = document.getElementById("submitBtn");
 
 if (form && statusEl && submitBtn) {
+  const attendanceRadios = form.querySelectorAll('input[name="attendance"]');
+  const guest1 = document.getElementById("guest1");
+  const guest2 = document.getElementById("guest2");
+  const mealRadios = form.querySelectorAll('input[name="mealPreference"]');
+
+  function updateGuestFields() {
+    const selectedAttendance = form.querySelector('input[name="attendance"]:checked')?.value;
+
+    if (selectedAttendance === "Regretfully Declines") {
+      if (guest1) {
+        guest1.value = "";
+        guest1.disabled = true;
+        guest1.required = false;
+      }
+
+      if (guest2) {
+        guest2.value = "";
+        guest2.disabled = true;
+        guest2.required = false;
+      }
+
+      mealRadios.forEach(radio => {
+        radio.checked = false;
+        radio.disabled = true;
+      });
+
+      form.classList.add("disabled-guest-fields");
+    } else if (selectedAttendance === "Joyfully Accepts") {
+      if (guest1) {
+        guest1.disabled = false;
+        guest1.required = true;
+      }
+
+      if (guest2) {
+        guest2.disabled = false;
+        guest2.required = false;
+      }
+
+      mealRadios.forEach(radio => {
+        radio.disabled = false;
+      });
+
+      form.classList.remove("disabled-guest-fields");
+    } else {
+      if (guest1) {
+        guest1.disabled = false;
+        guest1.required = false;
+      }
+
+      if (guest2) {
+        guest2.disabled = false;
+        guest2.required = false;
+      }
+
+      mealRadios.forEach(radio => {
+        radio.disabled = false;
+      });
+
+      form.classList.remove("disabled-guest-fields");
+    }
+  }
+
+  attendanceRadios.forEach(radio => {
+    radio.addEventListener("change", updateGuestFields);
+  });
+
+  updateGuestFields();
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const submittedAtInput = document.getElementById("submittedAt");
+
     if (submittedAtInput) {
       submittedAtInput.value = new Date().toISOString();
     }
@@ -173,30 +221,22 @@ if (form && statusEl && submitBtn) {
     const formData = new FormData(form);
 
     /*
-      Field name normalizer:
-      This makes sure data will still submit even if your HTML uses old names.
+      Make sure all expected Apps Script fields are sent,
+      even if some fields are disabled or blank.
     */
-    if (!formData.get("fullName") && formData.get("name")) {
-      formData.set("fullName", formData.get("name"));
-    }
+    const selectedAttendance = form.querySelector('input[name="attendance"]:checked')?.value || "";
+    const selectedMeal = form.querySelector('input[name="mealPreference"]:checked')?.value || "";
 
-    if (!formData.get("mobileNumber") && formData.get("mobile")) {
-      formData.set("mobileNumber", formData.get("mobile"));
-    }
-
-    if (!formData.get("attendance") && formData.get("attending")) {
-      formData.set("attendance", formData.get("attending"));
-    }
-
-    if (!formData.get("guestCount") && formData.get("guests")) {
-      formData.set("guestCount", formData.get("guests"));
-    }
-
-    if (!formData.get("mealPreference") && formData.get("meal")) {
-      formData.set("mealPreference", formData.get("meal"));
-    }
-
-    const payload = Object.fromEntries(formData.entries());
+    formData.set("fullName", document.getElementById("fullName")?.value || "");
+    formData.set("mobileNumber", document.getElementById("mobileNumber")?.value || "");
+    formData.set("email", document.getElementById("email")?.value || "");
+    formData.set("attendance", selectedAttendance);
+    formData.set("reservedSeats", document.getElementById("reservedSeats")?.value || "2");
+    formData.set("guest1", guest1?.value || "");
+    formData.set("guest2", guest2?.value || "");
+    formData.set("mealPreference", selectedMeal);
+    formData.set("message", document.getElementById("message")?.value || "");
+    formData.set("submittedAt", submittedAtInput?.value || new Date().toISOString());
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
@@ -204,10 +244,12 @@ if (form && statusEl && submitBtn) {
 
     try {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("PASTE_YOUR")) {
+        const payload = Object.fromEntries(formData.entries());
         console.table(payload);
         localStorage.setItem("lastWeddingRSVP", JSON.stringify(payload));
         statusEl.textContent = "Test mode: RSVP saved in this browser only.";
         form.reset();
+        updateGuestFields();
         return;
       }
 
@@ -220,14 +262,18 @@ if (form && statusEl && submitBtn) {
       await fetch(APPS_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        body: body
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        body: body.toString()
       });
 
       statusEl.textContent = "Thank you! Your RSVP has been submitted.";
       form.reset();
+      updateGuestFields();
 
     } catch (error) {
-      console.error(error);
+      console.error("RSVP submit error:", error);
       statusEl.textContent = "Sorry, something went wrong. Please try again or contact the coordinator.";
     } finally {
       submitBtn.disabled = false;
@@ -255,6 +301,7 @@ if (copyHashtag) {
   });
 }
 
+/* Copy GCash Number */
 const copyGcash = document.getElementById("copyGcash");
 const gcashNumber = document.getElementById("gcashNumber");
 const gcashCopyStatus = document.getElementById("gcashCopyStatus");
@@ -279,6 +326,8 @@ if (copyGcash && gcashNumber && gcashCopyStatus) {
     }
   });
 }
+
+/* Music Image Button */
 const bgMusic = document.getElementById("bgMusic");
 const musicImageBtn = document.getElementById("musicImageBtn");
 const musicImageBox = document.getElementById("musicImageBox");
@@ -323,3 +372,61 @@ if (musicImageBtn) {
     }
   });
 }
+
+/* Full View Image / Lightbox */
+document.addEventListener("DOMContentLoaded", () => {
+  const imageLightbox = document.getElementById("imageLightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxTitle = document.getElementById("lightboxTitle");
+  const lightboxClose = document.getElementById("lightboxClose");
+
+  if (!imageLightbox || !lightboxImage || !lightboxTitle || !lightboxClose) {
+    console.warn("Lightbox elements are missing. Please add the lightbox HTML before script.js.");
+    return;
+  }
+
+  function openImageLightbox(img) {
+    const imageSrc = img.getAttribute("src");
+    const imageAlt = img.getAttribute("alt") || "Full view image";
+    const imageTitle = img.getAttribute("data-title") || imageAlt;
+
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = imageAlt;
+    lightboxTitle.textContent = imageTitle;
+
+    imageLightbox.classList.add("open");
+    document.body.classList.add("lightbox-no-scroll");
+  }
+
+  function closeImageLightbox() {
+    imageLightbox.classList.remove("open");
+    document.body.classList.remove("lightbox-no-scroll");
+
+    setTimeout(() => {
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      lightboxTitle.textContent = "";
+    }, 150);
+  }
+
+  document.addEventListener("click", (event) => {
+    const clickedImage = event.target.closest(".full-view-img");
+
+    if (clickedImage) {
+      openImageLightbox(clickedImage);
+      return;
+    }
+
+    if (event.target === imageLightbox) {
+      closeImageLightbox();
+    }
+  });
+
+  lightboxClose.addEventListener("click", closeImageLightbox);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && imageLightbox.classList.contains("open")) {
+      closeImageLightbox();
+    }
+  });
+});
